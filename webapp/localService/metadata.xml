@@ -1,0 +1,95 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZSOA_SEARCH_DETAILS_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="SOASearchResult" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SoaIdRes"/>
+                </Key>
+                <Property Name="SoaIdRes" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Transaction No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApplicantRes" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApplicantNameRes" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidFromRes" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidToRes" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusRes" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SOABenefits" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Orderedprod"/>
+                </Key>
+                <Property Name="Orderedprod" Type="Edm.String" Nullable="false" MaxLength="54" sap:unicode="false" sap:label="Product" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Short Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Startdate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Enddate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BenefitStatus" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="User status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Soaref" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Transaction No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SOAPartnerFunctions" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Partnerid"/>
+                </Key>
+                <Property Name="Partnerid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Partnername" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Partnerfunction" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Partnr Function Desc" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Soaref" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Transaction No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SSPHeaderDetails" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Soaref"/>
+                </Key>
+                <Property Name="Sspid" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Transaction No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Datecontstart" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Datecontend" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SspStatus" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="User status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SspStatusText" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Precision="14" Scale="3" sap:unicode="false" sap:label="Gross Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Eligstatus" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Eligibility Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeResponsibleId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeResponsibleName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dbalink" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Transaction No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DbaStatus" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="User status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DbaStatusText" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Applicant" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApplicantName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Soaref" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Transaction No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Caselink" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Case ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SOAHeaderDetails" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Soaid"/>
+                </Key>
+                <Property Name="Soaid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Transaction No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Caselink" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Case ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Casestatus" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="User status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Soastatus" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="User status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Soastatustext" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Datecontstart" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Datecontend" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Applicant" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApplicantFullName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Soaempresp" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SoaemprespName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sspid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Transaction No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sspstatus" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="User status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sspstatustext" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Casestatustext" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZSOA_SEARCH_DETAILS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SOASearchResultSet" EntityType="ZSOA_SEARCH_DETAILS_SRV.SOASearchResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOABenefitsSet" EntityType="ZSOA_SEARCH_DETAILS_SRV.SOABenefits" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOAPartnerFunctionsSet" EntityType="ZSOA_SEARCH_DETAILS_SRV.SOAPartnerFunctions" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SSPHeaderDetailsSet" EntityType="ZSOA_SEARCH_DETAILS_SRV.SSPHeaderDetails" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOAHeaderDetailsSet" EntityType="ZSOA_SEARCH_DETAILS_SRV.SOAHeaderDetails" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/opu/odata/sap/ZSOA_SEARCH_DETAILS_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/opu/odata/sap/ZSOA_SEARCH_DETAILS_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
